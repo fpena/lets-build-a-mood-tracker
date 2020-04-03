@@ -53,7 +53,7 @@
 
                         <div class="mt-4 mb-0   ">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                <button type="submit" class="btn-primary">
                                     {{ __('Login') }}
                                 </button>
 

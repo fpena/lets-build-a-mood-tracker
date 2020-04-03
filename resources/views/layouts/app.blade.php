@@ -53,7 +53,7 @@
                             @endif
                         @else
                             <li class="mr-4">
-                                <a href="#">Goals</a>
+                                <a href="{{ route('goals.index') }}">Goals</a>
                             </li>
                             <li class="nav-item dropdown flex flex-row">
                                 <a id="navbarDropdown" class="mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

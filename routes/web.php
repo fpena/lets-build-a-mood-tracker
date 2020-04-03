@@ -25,3 +25,5 @@ Route::get('/mood', 'MoodUpdateController@index')->name('mood.index');
 Route::post('/mood', 'MoodUpdateController@store')->name('mood.store');
 
 Route::get('/goals', 'GoalsControler@index')->name('goals.index');
+Route::get('/goals/create', 'GoalsControler@create')->name('goals.create');
+Route::post('/goals', 'GoalsControler@store')->name('goals.store');
