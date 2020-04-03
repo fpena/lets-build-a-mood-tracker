@@ -8,14 +8,13 @@
             @foreach($moodUpdates as $moodUpdate)
                 <li class="p-2 {{ $loop->index % 2 == 0 ? 'bg-blue-100' : 'bg-blue-200' }}">
                     <p>{{ $moodUpdate->created_at->format('Y-m-d') }}: {!! $moodUpdate->moodDescription !!}</p>
+                    @if($moodUpdate->goals->count() > 0)
                     <p>This day I did the follow:
                         @foreach($moodUpdate->goals as $goal)
                             {{ $goal->name }}
                         @endforeach
                     </p>
-
-
-
+                    @endif
                 </li>
             @endforeach
         </ul>
