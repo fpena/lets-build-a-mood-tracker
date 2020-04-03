@@ -53,6 +53,9 @@
                             @endif
                         @else
                             <li class="mr-4">
+                                <a href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="mr-4">
                                 <a href="{{ route('goals.index') }}">Goals</a>
                             </li>
                             <li class="nav-item dropdown flex flex-row">
