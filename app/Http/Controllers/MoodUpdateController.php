@@ -20,6 +20,7 @@ class MoodUpdateController extends Controller
     public function index()
     {
         $moodUpdates = MoodUpdate::where('user_id', auth()->id())
+            ->with('goals')
             ->orderBy('created_at', 'desc')
             ->get();
 
