@@ -17,6 +17,15 @@ class MoodUpdateController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $moodUpdates = MoodUpdate::where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('mood_updates.index', compact('moodUpdates'));
+    }
+
     public function store(Request $request)
     {
         $payload = $this->validate($request, [

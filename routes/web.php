@@ -20,4 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/mood', 'MoodUpdateController@index')->name('mood.index');
 Route::post('/mood', 'MoodUpdateController@store')->name('mood.store');
