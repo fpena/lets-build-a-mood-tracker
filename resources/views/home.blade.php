@@ -56,11 +56,13 @@
             @if($moodUpdate->tags !== null)
                 <p>Your tags: {{ $moodUpdate->tags }}</p>
             @endif
+            @if($moodUpdate->goals->count() > 0)
             <p>This day I did the follow:
                 @foreach($moodUpdate->goals as $goal)
                     {{ $goal->name }}
                 @endforeach
             </p>
+            @endif
         </div>
     @endif
 
