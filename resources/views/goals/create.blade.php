@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-1/2 mx-auto">
+    <div class="w-3/4 md:w-1/2 mx-auto">
 
         <h3 class="text-xl">Create new goal</h3>
 
