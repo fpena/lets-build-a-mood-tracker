@@ -21,12 +21,11 @@ class MoodUpdateController extends Controller
     {
         $payload = $this->validate($request, [
             'mood' => 'required',
-            'journal' => 'nullable',
+            'journal' => 'string',
             'tags' => 'nullable',
         ]);
 
-        $moodUpdate = MoodUpdate::where('created_at', '>=', date('Y-m-d').' 00:00:00')
-            ->first();
+        $moodUpdate = MoodUpdate::today()->first();
 
         if ($moodUpdate) {
             return redirect(route('home'));
