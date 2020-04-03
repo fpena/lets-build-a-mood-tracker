@@ -21,6 +21,8 @@ class MoodUpdateController extends Controller
     {
         $payload = $this->validate($request, [
             'mood' => 'required',
+            'journal' => 'nullable',
+            'tags' => 'nullable',
         ]);
 
         $moodUpdate = MoodUpdate::where('created_at', '>=', date('Y-m-d').' 00:00:00')

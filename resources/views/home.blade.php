@@ -4,7 +4,17 @@
 <div class="w-1/2 mx-auto">
     <h3 class="text-xl">Welcome to Laramood!</h3>
 
-    <h4 class="text-base my-5">How's your day been?</h4>
+    <h4 class="text-base mt-5">How's your day been?</h4>
+
+    @if ($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative my-5" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form method="POST" action="{{ route('mood.store') }}">
         @csrf
