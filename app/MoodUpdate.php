@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoodUpdate extends Model
 {
-    protected $guarded = [];
+    protected $guarded = [
+        'goals'
+    ];
 
     public function scopeToday($query)
     {
@@ -23,5 +25,10 @@ class MoodUpdate extends Model
             case 5: return "&#128513; Great";
             default: return "&#128513; Great";
         }
+    }
+
+    public function goals()
+    {
+        return $this->belongsToMany(Goal::class, 'mood_update_goal');
     }
 }

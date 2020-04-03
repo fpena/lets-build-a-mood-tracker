@@ -52,6 +52,12 @@
                                 </li>
                             @endif
                         @else
+                            <li class="mr-4">
+                                <a href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="mr-4">
+                                <a href="{{ route('goals.index') }}">Goals</a>
+                            </li>
                             <li class="nav-item dropdown flex flex-row">
                                 <a id="navbarDropdown" class="mr-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

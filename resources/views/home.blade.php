@@ -1,27 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="w-1/2 mx-auto">
+<div class="w-3/4 md:w-1/2 mx-auto">
     <h3 class="text-xl">Welcome to Laramood!</h3>
 
-    @if(session('success'))
-        <div class="bg-teal-100 border border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-5" role="alert">
-            <p>{{ session('success') }}</p>
-        </div>
-    @endif
+    @include('components.success')
 
     @if(!$moodUpdate)
         <h4 class="text-base my-5">How's your day been?</h4>
 
-        @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('components.errors')
 
         <form method="POST" action="{{ route('mood.store') }}">
             @csrf
@@ -46,8 +34,15 @@
                 <input name="tags" placeholder="Write some tags..." type="text" class="input-text" />
             </div>
 
+            @foreach($goals as $goal)
+                <div class="mt-4">
+                    <input name="goals[{{ $goal->id  }}]" type="checkbox">
+                    <label for="">{{ $goal->name }}</label>
+                </div>
+            @endforeach
+
             <div class="mt-4">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button type="submit" class="btn-primary">
                     Submit entry
                 </button>
             </div>
@@ -60,6 +55,13 @@
             @endif
             @if($moodUpdate->tags !== null)
                 <p>Your tags: {{ $moodUpdate->tags }}</p>
+            @endif
+            @if($moodUpdate->goals->count() > 0)
+            <p>This day I did the follow:
+                @foreach($moodUpdate->goals as $goal)
+                    {{ $goal->name }}
+                @endforeach
+            </p>
             @endif
         </div>
     @endif
