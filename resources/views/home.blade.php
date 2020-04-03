@@ -34,6 +34,13 @@
                 <input name="tags" placeholder="Write some tags..." type="text" class="input-text" />
             </div>
 
+            @foreach($goals as $goal)
+                <div class="mt-4">
+                    <input name="goals[{{ $goal->id  }}]" type="checkbox">
+                    <label for="">{{ $goal->name }}</label>
+                </div>
+            @endforeach
+
             <div class="mt-4">
                 <button type="submit" class="btn-primary">
                     Submit entry
@@ -49,6 +56,11 @@
             @if($moodUpdate->tags !== null)
                 <p>Your tags: {{ $moodUpdate->tags }}</p>
             @endif
+            <p>This day I did the follow:
+                @foreach($moodUpdate->goals as $goal)
+                    {{ $goal->name }}
+                @endforeach
+            </p>
         </div>
     @endif
 

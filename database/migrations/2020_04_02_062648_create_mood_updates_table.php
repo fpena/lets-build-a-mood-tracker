@@ -14,7 +14,7 @@ class CreateMoodUpdatesTable extends Migration
     public function up()
     {
         Schema::create('mood_updates', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
             $table->unsignedInteger('mood');
             $table->text('journal')->nullable();

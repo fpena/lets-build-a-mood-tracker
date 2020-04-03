@@ -30,8 +30,9 @@ class MoodUpdateController extends Controller
     {
         $payload = $this->validate($request, [
             'mood' => 'required',
-            'journal' => 'string',
+            'journal' => 'nullable',
             'tags' => 'nullable',
+            'goals' => 'array|min:0'
         ]);
 
         $moodUpdate = MoodUpdate::today()->first();
@@ -40,9 +41,13 @@ class MoodUpdateController extends Controller
             return redirect(route('home'));
         }
 
-        MoodUpdate::create(array_merge($payload, [
+        $moodUpdate = MoodUpdate::create(array_merge($payload, [
             'user_id' => auth()->id()
         ]));
+
+        $goalKeys = array_keys($request->get('goals'));
+
+        $moodUpdate->goals()->attach($goalKeys);
 
         return redirect(route('home'))
             ->with('success', 'Your mood update is ready!');
