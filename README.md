@@ -8,7 +8,7 @@ TBA
 
 ## License
 
-This code source and the Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This source code and the Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Donation
 
