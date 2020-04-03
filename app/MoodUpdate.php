@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoodUpdate extends Model
 {
-    //
+    protected $guarded = [];
 }
