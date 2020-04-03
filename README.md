@@ -17,4 +17,4 @@ If you feel I provided some help or value, please consider sending out [a donati
 
 ## Feedback and questions
 
-✌🏻 For any kind of feedback or questions, please reach me at felipe [at] penya . cl
+✌🏻 For any kind of feedback or questions, please reach me on [my Twitter account](https://www.twitter.com/patrosmania) or at felipe [at] penya . cl
