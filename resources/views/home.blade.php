@@ -62,7 +62,10 @@
                 <p>Your tags: {{ $moodUpdate->tags }}</p>
             @endif
         </div>
-
     @endif
+
+    <div class="mt-10">
+        <a class="text-gray-500 underline" href="{{ route('mood.index') }}">Past entries</a>
+    </div>
 </div>
 @endsection

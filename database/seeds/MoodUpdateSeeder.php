@@ -13,7 +13,7 @@ class MoodUpdateSeeder extends Seeder
     {
         $user = \App\User::first();
 
-        factory(\App\MoodUpdate::class, 5)->create([
+        factory(\App\MoodUpdate::class, 15)->create([
             'user_id' => $user->id
         ]);
     }
