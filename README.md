@@ -4,7 +4,7 @@ This is the code source for the April 3rd webinar.
 
 ## Webinar record
 
-TBA
+1. [Part one](https://vimeo.com/404713746)
 
 ## License
 
