@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserGetsNotifiedWhenMoodEntryIsCreated;
 use App\MoodUpdate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MoodUpdateController extends Controller
 {
@@ -51,6 +53,9 @@ class MoodUpdateController extends Controller
 
             $moodUpdate->goals()->attach($goalKeys);
         }
+
+        Mail::to(auth()->user())
+            ->send(new UserGetsNotifiedWhenMoodEntryIsCreated($moodUpdate));
 
         return redirect(route('home'))
             ->with('success', 'Your mood update is ready!');
