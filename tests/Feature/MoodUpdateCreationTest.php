@@ -76,7 +76,6 @@ class MoodUpdateCreationTest extends TestCase
     /** @test */
     public function a_user_can_submit_form_with_goals()
     {
-
         $user = create(User::class);
         $this->actingAs($user);
 
