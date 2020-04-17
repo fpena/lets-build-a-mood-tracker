@@ -46,9 +46,11 @@ class MoodUpdateController extends Controller
             'user_id' => auth()->id()
         ]));
 
-        $goalKeys = array_keys($request->get('goals'));
+        if ($request->get('goals')) {
+            $goalKeys = array_keys($request->get('goals'));
 
-        $moodUpdate->goals()->attach($goalKeys);
+            $moodUpdate->goals()->attach($goalKeys);
+        }
 
         return redirect(route('home'))
             ->with('success', 'Your mood update is ready!');
