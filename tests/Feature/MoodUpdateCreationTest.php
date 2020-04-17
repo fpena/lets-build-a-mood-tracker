@@ -3,10 +3,12 @@
 namespace Tests\Feature;
 
 use App\Goal;
+use App\Mail\UserGetsNotifiedWhenMoodEntryIsCreated;
 use App\MoodUpdate;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class MoodUpdateCreationTest extends TestCase
@@ -60,6 +62,8 @@ class MoodUpdateCreationTest extends TestCase
     /** @test */
     public function a_user_can_submit_form()
     {
+        Mail::fake();
+
         $user = create(User::class);
         $this->actingAs($user);
 
@@ -71,11 +75,15 @@ class MoodUpdateCreationTest extends TestCase
         $moodUpdate = MoodUpdate::first();
         $this->assertNotNull($moodUpdate);
         $this->assertEquals('Great day!', $moodUpdate->journal);
+
+        Mail::assertSent(UserGetsNotifiedWhenMoodEntryIsCreated::class);
     }
 
     /** @test */
     public function a_user_can_submit_form_with_goals()
     {
+        Mail::fake();
+
         $user = create(User::class);
         $this->actingAs($user);
 
@@ -93,5 +101,7 @@ class MoodUpdateCreationTest extends TestCase
         $this->assertNotNull($moodUpdate);
         $this->assertEquals('Good day!', $moodUpdate->journal);
         $this->assertCount(1, $moodUpdate->goals);
+
+        Mail::assertSent(UserGetsNotifiedWhenMoodEntryIsCreated::class);
     }
 }
