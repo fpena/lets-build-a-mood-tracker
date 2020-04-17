@@ -13,7 +13,7 @@ class GoalSeeder extends Seeder
     {
         $user = \App\User::first();
 
-        factory(\App\Goal::class)->create([
+        create(\App\Goal::class, [
             'name' => 'Meditation',
             'user_id' => $user->id
         ]);
